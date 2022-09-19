@@ -25,7 +25,7 @@ class EpisodeEntity
      */
     public function __construct()
     {
-        $this->is_urgent = null;
+        $this->is_urgent = false;
         $this->nhc = null;
         $this->name = null;
         $this->age = null;
@@ -62,7 +62,7 @@ class EpisodeEntity
     }
 
     /**
-     * @return mixed
+     * @return null
      */
     public function getIsUrgent()
     {
@@ -70,15 +70,17 @@ class EpisodeEntity
     }
 
     /**
-     * @param mixed $is_urgent
+     * @param null $is_urgent
+     * @return EpisodeEntity
      */
-    public function setIsUrgent($is_urgent): void
+    public function setIsUrgent($is_urgent)
     {
         $this->is_urgent = $is_urgent;
+        return $this;
     }
 
     /**
-     * @return mixed
+     * @return null
      */
     public function getNhc()
     {
@@ -86,15 +88,17 @@ class EpisodeEntity
     }
 
     /**
-     * @param mixed $nhc
+     * @param null $nhc
+     * @return EpisodeEntity
      */
-    public function setNhc($nhc): void
+    public function setNhc($nhc)
     {
         $this->nhc = $nhc;
+        return $this;
     }
 
     /**
-     * @return mixed
+     * @return null
      */
     public function getName()
     {
@@ -102,15 +106,17 @@ class EpisodeEntity
     }
 
     /**
-     * @param mixed $name
+     * @param null $name
+     * @return EpisodeEntity
      */
-    public function setName($name): void
+    public function setName($name)
     {
         $this->name = $name;
+        return $this;
     }
 
     /**
-     * @return mixed
+     * @return null
      */
     public function getAge()
     {
@@ -118,15 +124,17 @@ class EpisodeEntity
     }
 
     /**
-     * @param mixed $age
+     * @param null $age
+     * @return EpisodeEntity
      */
-    public function setAge($age): void
+    public function setAge($age)
     {
         $this->age = $age;
+        return $this;
     }
 
     /**
-     * @return mixed
+     * @return null
      */
     public function getTelephone()
     {
@@ -134,15 +142,17 @@ class EpisodeEntity
     }
 
     /**
-     * @param mixed $telephone
+     * @param null $telephone
+     * @return EpisodeEntity
      */
-    public function setTelephone($telephone): void
+    public function setTelephone($telephone)
     {
         $this->telephone = $telephone;
+        return $this;
     }
 
     /**
-     * @return mixed
+     * @return null
      */
     public function getHospitalUniqueRef()
     {
@@ -150,15 +160,17 @@ class EpisodeEntity
     }
 
     /**
-     * @param mixed $hospital_unique_ref
+     * @param null $hospital_unique_ref
+     * @return EpisodeEntity
      */
-    public function setHospitalUniqueRef($hospital_unique_ref): void
+    public function setHospitalUniqueRef($hospital_unique_ref)
     {
         $this->hospital_unique_ref = $hospital_unique_ref;
+        return $this;
     }
 
     /**
-     * @return mixed
+     * @return null
      */
     public function getMaxWaitingListDays()
     {
@@ -166,15 +178,17 @@ class EpisodeEntity
     }
 
     /**
-     * @param mixed $max_waiting_list_days
+     * @param null $max_waiting_list_days
+     * @return EpisodeEntity
      */
-    public function setMaxWaitingListDays($max_waiting_list_days): void
+    public function setMaxWaitingListDays($max_waiting_list_days)
     {
         $this->max_waiting_list_days = $max_waiting_list_days;
+        return $this;
     }
 
     /**
-     * @return mixed
+     * @return null
      */
     public function getWaitingListEntryDay()
     {
@@ -182,15 +196,17 @@ class EpisodeEntity
     }
 
     /**
-     * @param mixed $waiting_list_entry_day
+     * @param null $waiting_list_entry_day
+     * @return EpisodeEntity
      */
-    public function setWaitingListEntryDay($waiting_list_entry_day): void
+    public function setWaitingListEntryDay($waiting_list_entry_day)
     {
         $this->waiting_list_entry_day = $waiting_list_entry_day;
+        return $this;
     }
 
     /**
-     * @return mixed
+     * @return null
      */
     public function getForecastedMin()
     {
@@ -198,15 +214,17 @@ class EpisodeEntity
     }
 
     /**
-     * @param mixed $forecasted_min
+     * @param null $forecasted_min
+     * @return EpisodeEntity
      */
-    public function setForecastedMin($forecasted_min): void
+    public function setForecastedMin($forecasted_min)
     {
         $this->forecasted_min = $forecasted_min;
+        return $this;
     }
 
     /**
-     * @return mixed
+     * @return null
      */
     public function getService()
     {
@@ -214,15 +232,17 @@ class EpisodeEntity
     }
 
     /**
-     * @param mixed $service
+     * @param null $service
+     * @return EpisodeEntity
      */
-    public function setService($service): void
+    public function setService($service)
     {
         $this->service = $service;
+        return $this;
     }
 
     /**
-     * @return mixed
+     * @return null
      */
     public function getProcedure()
     {
@@ -230,15 +250,17 @@ class EpisodeEntity
     }
 
     /**
-     * @param mixed $procedure
+     * @param null $procedure
+     * @return EpisodeEntity
      */
-    public function setProcedure($procedure): void
+    public function setProcedure($procedure)
     {
         $this->procedure = $procedure;
+        return $this;
     }
 
     /**
-     * @return mixed
+     * @return null
      */
     public function getProcedureDescription()
     {
@@ -246,15 +268,17 @@ class EpisodeEntity
     }
 
     /**
-     * @param mixed $procedure_description
+     * @param null $procedure_description
+     * @return EpisodeEntity
      */
-    public function setProcedureDescription($procedure_description): void
+    public function setProcedureDescription($procedure_description)
     {
         $this->procedure_description = $procedure_description;
+        return $this;
     }
 
     /**
-     * @return mixed
+     * @return null
      */
     public function getPreanesthesiaNotes()
     {
@@ -262,15 +286,17 @@ class EpisodeEntity
     }
 
     /**
-     * @param mixed $preanesthesia_notes
+     * @param null $preanesthesia_notes
+     * @return EpisodeEntity
      */
-    public function setPreanesthesiaNotes($preanesthesia_notes): void
+    public function setPreanesthesiaNotes($preanesthesia_notes)
     {
         $this->preanesthesia_notes = $preanesthesia_notes;
+        return $this;
     }
 
     /**
-     * @return mixed
+     * @return null
      */
     public function getDoctor()
     {
@@ -278,11 +304,14 @@ class EpisodeEntity
     }
 
     /**
-     * @param mixed $doctor
+     * @param null $doctor
+     * @return EpisodeEntity
      */
-    public function setDoctor($doctor): void
+    public function setDoctor($doctor)
     {
         $this->doctor = $doctor;
+        return $this;
     }
+
 
 }

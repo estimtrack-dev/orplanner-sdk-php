@@ -4,7 +4,8 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Estimtrack\\Orplannersdkphp\\": "src/"
+            "Estimtrack\\Orplannersdkphp\\": "src/",
+            "Estimtrack\\Orplannersdkphp\\Tests\\": "tests/"
         }
     },
     "authors": [
@@ -14,5 +15,7 @@
         }
     ],
     "minimum-stability": "dev",
-    "require": {}
+    "require-dev": {
+        "phpunit/phpunit": "9.5.x-dev"
+    }
 }

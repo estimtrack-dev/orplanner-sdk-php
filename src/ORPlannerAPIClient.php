@@ -44,7 +44,7 @@ class ORPlannerAPIClient
             'form_params' => $params
         ]);
 
-        return $response->getBody();
+        return $response->getBody()->getContents();
     }
 
 
