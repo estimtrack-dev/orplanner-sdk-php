@@ -54,11 +54,18 @@ class ORPlannerAPIClient
      */
     public function getHashesOfEpisodeRefs(array $arrayOfRefs, $guzzleConfig = [])
     {
+        $body  =[
+            'refs' => $arrayOfRefs
+        ];
         $getHashesUrl = 'public/get_hashes';
         $client = new Client($guzzleConfig);
-        $response = $client->request('GET', $this->url . $getHashesUrl);
+        $response = $client->request('PUT', $this->url . $getHashesUrl,
+            [
+                'form_params' => $body
+            ]
+        );
 
-        return $response->getBody();
+        return json_decode($response->getBody()->getContents(),true)['data'];
     }
 
     public function cancelEpisode()

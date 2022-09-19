@@ -19,8 +19,8 @@ class SendEpisodeTest extends TestCase
 
 
         $episodeEntity = new EpisodeEntity();
-        $episodeEntity->setHospitalUniqueRef(123123)
-            ->setNhc(123124)
+        $episodeEntity->setHospitalUniqueRef(1231231)
+            ->setNhc(1231244)
             ->setName('Paco marlago')
             ->setTelephone('62349243')
             ->setAge(56)
