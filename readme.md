@@ -4,7 +4,7 @@
 
 
 
-### Usage
+### Installation
 add me in the composer of your project
 ````
 "repositories": [
@@ -18,13 +18,15 @@ add me in the composer of your project
 Add me on the require:
 ````
     "estimtrack/orplannersdkphp": "^1.0.0"
-
 ````
 and run:
 ````
 composer update
 ````
 
+### Usage
+
+Check the Feature tests for more info
 
 ### Dev env
 
