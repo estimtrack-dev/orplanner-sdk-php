@@ -17,7 +17,7 @@ class ORPlannerAPIClient
         $this->url = $core_api_url;
     }
 
-    public function sendEpisode(EpisodeEntity $entity)
+    public function sendEpisode(EpisodeEntity $entity, $guzzleConfig = [])
     {
 
         $params = [
@@ -39,18 +39,26 @@ class ORPlannerAPIClient
 
 
         $sendEpisodeUrl = 'public/episodes';
-        $client = new Client();
-        $response = $client->request('POST', $this->url.$sendEpisodeUrl, [
+        $client = new Client($guzzleConfig);
+        $response = $client->request('POST', $this->url . $sendEpisodeUrl, [
             'form_params' => $params
         ]);
 
-        return $response;
+        return $response->getBody();
     }
 
 
-    public function getHashesOfEpisodeRefs($arrayOfHashes): RefsAndHashes
-    {
+    /**
+     * @param array $arrayOfRefs = ['123923','1233249','123483','2345828']
 
+     */
+    public function getHashesOfEpisodeRefs(array $arrayOfRefs, $guzzleConfig = [])
+    {
+        $getHashesUrl = 'public/get_hashes';
+        $client = new Client($guzzleConfig);
+        $response = $client->request('GET', $this->url . $getHashesUrl);
+
+        return $response->getBody();
     }
 
     public function cancelEpisode()
