@@ -27,7 +27,7 @@ class ORPlannerAPIClient
             'procedure_ref' => $entity->getProcedure(),
             'description_procedure_type' => $entity->getProcedureDescription(),
             'service_name' => $entity->getServiceName(),
-            'forecasted_duration_min' => $entity->getForecastedMin(),
+            'forecasted_duration_min' => $entity->getForecastedDurationMin(),
             'is_urgent' => $entity->getIsUrgent(),
             'patient_name' => $entity->getPatientName(),
             'patient_age' => $entity->getAge(),
@@ -50,7 +50,7 @@ class ORPlannerAPIClient
 
     /**
      * @param array $arrayOfRefs = ['123923','1233249','123483','2345828']
-
+     * @throws \GuzzleHttp\Exception\GuzzleException
      */
     public function getHashesOfEpisodeRefs(array $arrayOfRefs, $guzzleConfig = [])
     {

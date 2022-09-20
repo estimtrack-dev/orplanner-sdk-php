@@ -25,7 +25,7 @@ class SendEpisodeTest extends TestCase
             ->setTelephone('62349243')
             ->setAge(56)
             ->setMaxWaitingListDays(365)
-            ->setForecastedMin(100)
+            ->setForecastedDurationMin(100)
             ->setServiceName('URO')
             ->setProcedure('12.30')
             ->setProcedure('Prostata')
