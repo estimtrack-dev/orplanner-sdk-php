@@ -766,10 +766,13 @@ class EpisodeEntity
 
     /**
      * @param string|null $entry_type
+     * @return EpisodeEntity
      */
-    public function setEntryType(?string $entry_type): void
+    public function setEntryType(?string $entry_type): EpisodeEntity
     {
         $this->entry_type = $entry_type;
+
+        return $this;
     }
 
     public function computeHash(): string
