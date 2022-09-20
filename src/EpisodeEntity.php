@@ -266,7 +266,7 @@ class EpisodeEntity
         return $this->max_waiting_days;
     }
 
-    public function setMaxWaitinglistdays($max_waiting_days): self
+    public function setMaxWaitingDays($max_waiting_days): self
     {
         $this->max_waiting_days = $max_waiting_days;
         return $this;
