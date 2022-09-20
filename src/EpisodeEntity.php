@@ -5,55 +5,76 @@ namespace Estimtrack\Orplannersdkphp;
 class EpisodeEntity
 {
 
-    private $is_urgent;
-    private $nhc;
-    private $name;
-    private $age;
-    private $telephone;
-    private $hospital_unique_ref;
-    private $max_waiting_list_days;
-    private $waiting_list_entry_day;
-    private $forecasted_min;
-    private $service;
-    private $procedure;
-    private $procedure_description;
-    private $preanesthesia_notes;
-    private $doctor;
-
-    /**
-     * EpisodeEntity constructor.
+    /** @var string   mandatory field , patient identifier
      */
-    public function __construct()
-    {
-        $this->is_urgent = false;
-        $this->nhc = null;
-        $this->name = null;
-        $this->age = null;
-        $this->telephone = null;
-        $this->hospital_unique_ref = null;
-        $this->max_waiting_list_days = null;
-        $this->waiting_list_entry_day = null;
-        $this->forecasted_min = null;
-        $this->service = null;
-        $this->procedure = null;
-        $this->procedure_description = null;
-        $this->preanesthesia_notes = null;
-        $this->doctor = null;
-    }
+    private $nhc;
 
-    public function computeHash()
+    /** @var string   mandatory field , patient name
+     */
+    private string $patientName = '';
+
+    /** @var string  mandatory field, episode unique identifier
+     */
+    private string $hospital_unique_ref;
+
+    /** @var ?int  optional field , patient age
+     */
+    private ?int $age = null;
+
+    /** @var bool  optional field , true   -> episode is urgent  / false  -> is not urgent
+     */
+    private bool $is_urgent = false;
+
+    /** @var ?int  optional field, patient telephone
+     */
+    private  ?int $telephone = null;
+
+    /** @var ?int  optional field, maximum amount of days the patient can spent in waiting list
+     */
+    private ?int $max_waiting_list_days = null;
+
+    /** @var ?string  optional field, day patient got in the waiting list, format Y-m-d!
+     */
+    private ?string $waiting_list_entry_day;  //Y-m-d;
+
+    /** @var ?int  optional field, amount of time in minutes the intervention is expected to be
+     */
+    private ?int $forecasted_min  =null;
+
+    /** @var ?string  optional field, name of the service the episode is associated with
+     */
+    private ?string  $serviceName = null;
+
+    /** @var ?string  optional field, name of the procedure that the patient will be subject to
+     */
+    private ?string $procedure = null;
+
+    /** @var ?string  optional field,  procedure description  the patient will be subject to
+     */
+    private ?string $procedure_description = null;
+
+    /** @var ?string  optional field,  notes taken during pre anesthesia
+     */
+    private ?string $preanesthesia_notes = null;
+
+    /** @var ?string  optional field,  name of the doctor in charge of the patient
+     */
+    private ?string $doctor;
+
+
+    public function computeHash(): string
     {
         $textToHash = '';
         $textToHash .= $this->is_urgent;
         $textToHash .= $this->nhc;
-        $textToHash .= $this->name;
+        $textToHash .= $this->patientName;
         $textToHash .= $this->age;
         $textToHash .= $this->telephone;
         $textToHash .= $this->hospital_unique_ref;
         $textToHash .= $this->max_waiting_list_days;
         $textToHash .= $this->waiting_list_entry_day;
         $textToHash .= $this->forecasted_min;
-        $textToHash .= $this->service;
+        $textToHash .= $this->serviceName;
         $textToHash .= $this->procedure;
         $textToHash .= $this->procedure_description;
         $textToHash .= $this->preanesthesia_notes;
@@ -61,207 +82,142 @@ class EpisodeEntity
         return md5($textToHash);
     }
 
-    /**
-     * @return null
-     */
-    public function getIsUrgent()
+    public function getIsUrgent(): bool
     {
         return $this->is_urgent;
     }
 
-    /**
-     * @param null $is_urgent
-     * @return EpisodeEntity
-     */
-    public function setIsUrgent($is_urgent)
+    public function setIsUrgent($is_urgent): static
     {
         $this->is_urgent = $is_urgent;
         return $this;
     }
 
-    /**
-     * @return null
-     */
     public function getNhc()
     {
         return $this->nhc;
     }
 
-    /**
-     * @param null $nhc
-     * @return EpisodeEntity
-     */
-    public function setNhc($nhc)
+
+    public function setNhc($nhc): static
     {
         $this->nhc = $nhc;
         return $this;
     }
 
-    /**
-     * @return null
-     */
-    public function getName()
+
+    public function getPatientName()
     {
-        return $this->name;
+        return $this->patientName;
     }
 
-    /**
-     * @param null $name
-     * @return EpisodeEntity
-     */
-    public function setName($name)
+
+    public function setPatientName($patientName): static
     {
-        $this->name = $name;
+        $this->patientName = $patientName;
         return $this;
     }
 
-    /**
-     * @return null
-     */
+
     public function getAge()
     {
         return $this->age;
     }
 
-    /**
-     * @param null $age
-     * @return EpisodeEntity
-     */
-    public function setAge($age)
+    public function setAge($age): static
     {
         $this->age = $age;
         return $this;
     }
 
-    /**
-     * @return null
-     */
+
     public function getTelephone()
     {
         return $this->telephone;
     }
 
-    /**
-     * @param null $telephone
-     * @return EpisodeEntity
-     */
-    public function setTelephone($telephone)
+    public function setTelephone($telephone): static
     {
         $this->telephone = $telephone;
         return $this;
     }
 
-    /**
-     * @return null
-     */
+
     public function getHospitalUniqueRef()
     {
         return $this->hospital_unique_ref;
     }
 
-    /**
-     * @param null $hospital_unique_ref
-     * @return EpisodeEntity
-     */
-    public function setHospitalUniqueRef($hospital_unique_ref)
+    public function setHospitalUniqueRef($hospital_unique_ref): static
     {
         $this->hospital_unique_ref = $hospital_unique_ref;
         return $this;
     }
 
-    /**
-     * @return null
-     */
+
     public function getMaxWaitingListDays()
     {
         return $this->max_waiting_list_days;
     }
 
-    /**
-     * @param null $max_waiting_list_days
-     * @return EpisodeEntity
-     */
-    public function setMaxWaitingListDays($max_waiting_list_days)
+    public function setMaxWaitingListDays($max_waiting_list_days): static
     {
         $this->max_waiting_list_days = $max_waiting_list_days;
         return $this;
     }
 
-    /**
-     * @return null
-     */
+
     public function getWaitingListEntryDay()
     {
         return $this->waiting_list_entry_day;
     }
 
-    /**
-     * @param null $waiting_list_entry_day
-     * @return EpisodeEntity
-     */
-    public function setWaitingListEntryDay($waiting_list_entry_day)
+
+    public function setWaitingListEntryDay($waiting_list_entry_day): static
     {
         $this->waiting_list_entry_day = $waiting_list_entry_day;
         return $this;
     }
 
-    /**
-     * @return null
-     */
+
     public function getForecastedMin()
     {
         return $this->forecasted_min;
     }
 
-    /**
-     * @param null $forecasted_min
-     * @return EpisodeEntity
-     */
-    public function setForecastedMin($forecasted_min)
+
+    public function setForecastedMin($forecasted_min): static
     {
         $this->forecasted_min = $forecasted_min;
         return $this;
     }
 
-    /**
-     * @return null
-     */
-    public function getService()
+
+    public function getServiceName()
     {
-        return $this->service;
+        return $this->serviceName;
     }
 
-    /**
-     * @param null $service
-     * @return EpisodeEntity
-     */
-    public function setService($service)
+    public function setServiceName($serviceName): static
     {
-        $this->service = $service;
+        $this->serviceName = $serviceName;
         return $this;
     }
 
-    /**
-     * @return null
-     */
+
     public function getProcedure()
     {
         return $this->procedure;
     }
 
-    /**
-     * @param null $procedure
-     * @return EpisodeEntity
-     */
-    public function setProcedure($procedure)
+
+    public function setProcedure($procedure): static
     {
         $this->procedure = $procedure;
         return $this;
     }
 
-    /**
-     * @return null
-     */
+
     public function getProcedureDescription()
     {
         return $this->procedure_description;
@@ -271,43 +227,32 @@ class EpisodeEntity
      * @param null $procedure_description
      * @return EpisodeEntity
      */
-    public function setProcedureDescription($procedure_description)
+    public function setProcedureDescription($procedure_description): static
     {
         $this->procedure_description = $procedure_description;
         return $this;
     }
 
-    /**
-     * @return null
-     */
+
     public function getPreanesthesiaNotes()
     {
         return $this->preanesthesia_notes;
     }
 
-    /**
-     * @param null $preanesthesia_notes
-     * @return EpisodeEntity
-     */
-    public function setPreanesthesiaNotes($preanesthesia_notes)
+
+    public function setPreanesthesiaNotes($preanesthesia_notes): static
     {
         $this->preanesthesia_notes = $preanesthesia_notes;
         return $this;
     }
 
-    /**
-     * @return null
-     */
+
     public function getDoctor()
     {
         return $this->doctor;
     }
 
-    /**
-     * @param null $doctor
-     * @return EpisodeEntity
-     */
-    public function setDoctor($doctor)
+    public function setDoctorName($doctor): static
     {
         $this->doctor = $doctor;
         return $this;

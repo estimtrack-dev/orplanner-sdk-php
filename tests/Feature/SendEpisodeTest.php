@@ -21,12 +21,12 @@ class SendEpisodeTest extends TestCase
         $episodeEntity = new EpisodeEntity();
         $episodeEntity->setHospitalUniqueRef(1231231)
             ->setNhc(1231244)
-            ->setName('Paco marlago')
+            ->setPatientName('Paco marlago')
             ->setTelephone('62349243')
             ->setAge(56)
             ->setMaxWaitingListDays(365)
             ->setForecastedMin(100)
-            ->setService('URO')
+            ->setServiceName('URO')
             ->setProcedure('12.30')
             ->setProcedure('Prostata')
             ->setWaitingListEntryDay(Carbon::now()->format('Y-m-d'));

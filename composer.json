@@ -16,6 +16,6 @@
     ],
     "minimum-stability": "dev",
     "require-dev": {
-        "phpunit/phpunit": "9.5.x-dev"
+        "../../../../vendor/phpunit/phpunit": "9.5.x-dev"
     }
 }

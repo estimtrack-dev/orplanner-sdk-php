@@ -17,7 +17,7 @@ class ORPlannerAPIClient
         $this->url = $core_api_url;
     }
 
-    public function sendEpisode(EpisodeEntity $entity, $guzzleConfig = [])
+    public function sendEpisode(EpisodeEntity $entity, $guzzleConfig = []): string
     {
 
         $params = [
@@ -26,14 +26,14 @@ class ORPlannerAPIClient
             'entered_waiting_list' => $entity->getWaitingListEntryDay(),
             'procedure_ref' => $entity->getProcedure(),
             'description_procedure_type' => $entity->getProcedureDescription(),
-            'service_name' => $entity->getService(),
+            'service_name' => $entity->getServiceName(),
             'forecasted_duration_min' => $entity->getForecastedMin(),
             'is_urgent' => $entity->getIsUrgent(),
-            'patient_name' => $entity->getName(),
+            'patient_name' => $entity->getPatientName(),
             'patient_age' => $entity->getAge(),
             'patient_telephone' => $entity->getTelephone(),
             'patient_nhc' => $entity->getNhc(),
-            'hash' => $entity->computeHash()
+            'hash' => $entity->computeHash(),
 
         ];
 
