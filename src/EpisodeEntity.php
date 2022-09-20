@@ -778,7 +778,6 @@ class EpisodeEntity
 
 
         $textToHash =
-
             $this->getNhc() .
             $this->getPatientName().
             $this->getHospitalUniqueRef().
