@@ -58,7 +58,7 @@ class EpisodeEntity
 
     /** @var ?string  optional field, day patient got in the waiting list, format Y-m-d
      */
-    public ?string $entered_waiting_list =null;
+    public ?string $entered_waiting_list = null;
 
     /** @var ?int  optional field, amount of time in minutes the intervention is expected to be
      */
@@ -66,11 +66,11 @@ class EpisodeEntity
 
     /** @var ?string  optional field, which hour did the intervention start, format H:i:s
      */
-    public ?string $real_start_hour = null;
+    public ?string $real_start_time = null;
 
     /** @var ?string  optional field, which hour did the intervention finish, format H:i:s
      */
-    public ?string $real_finish_hour = null;
+    public ?string $real_finish_time = null;
 
     /** @var ?string  optional field, which is the intervention supposed to start, format H:i:s
      */
@@ -113,7 +113,7 @@ class EpisodeEntity
 
     /** @var bool  optional field , true   -> episode/intervention has complexity   / false  -> is has not
      */
-    public bool $is_complicated =  false;
+    public bool $is_complicated = false;
 
     /** @var bool  optional field , true   -> isolated  / false  -> it is not
      */
@@ -131,6 +131,10 @@ class EpisodeEntity
     /** @var bool  optional field , true   -> has patient checks for anesthesia have been made  / false  -> not been made
      */
     public bool $anesthesia_appreciation = false;
+
+    /** @var bool  optional field , true   -> has rx, false -> has no rx
+     */
+    public bool $rx = false;
 
 
     //doctors, name , info  and other fields
@@ -181,7 +185,7 @@ class EpisodeEntity
 
     /** @var ?string   optional field , text specifying priority
      */
-    public ?string  $priority =null;
+    public ?string $priority = null;
 
     /** @var ?string   optional field , text specifying  type of patient admission
      */
@@ -397,18 +401,18 @@ class EpisodeEntity
     /**
      * @return string|null
      */
-    public function getRealStartHour(): ?string
+    public function getRealStartTime(): ?string
     {
-        return $this->real_start_hour;
+        return $this->real_start_time;
     }
 
     /**
-     * @param string|null $real_start_hour
+     * @param string|null $real_start_time
      * @return EpisodeEntity
      */
-    public function setRealStartHour(?string $real_start_hour): EpisodeEntity
+    public function setRealStartTime(?string $real_start_time): EpisodeEntity
     {
-        $this->real_start_hour = $real_start_hour;
+        $this->real_start_time = $real_start_time;
         return $this;
 
     }
@@ -417,18 +421,18 @@ class EpisodeEntity
     /**
      * @return string|null
      */
-    public function getRealFinishHour(): ?string
+    public function getRealFinishTime(): ?string
     {
-        return $this->real_finish_hour;
+        return $this->real_finish_time;
     }
 
     /**
-     * @param string|null $real_finish_hour
+     * @param string|null $real_finish_time
      * @return EpisodeEntity
      */
-    public function setRealFinishHour(?string $real_finish_hour): EpisodeEntity
+    public function setRealFinishTime(?string $real_finish_time): EpisodeEntity
     {
-        $this->real_finish_hour = $real_finish_hour;
+        $this->real_finish_time = $real_finish_time;
         return $this;
     }
 
@@ -705,7 +709,7 @@ class EpisodeEntity
     /**
      * @return string|null
      */
-    public function getOrderedBydoctorref(): ?string
+    public function getOrderedByDoctorRef(): ?string
     {
         return $this->ordered_by_doctor_ref;
     }
@@ -775,49 +779,69 @@ class EpisodeEntity
         return $this;
     }
 
+
+    /**
+     * @return bool
+     */
+    public function isRx(): bool
+    {
+        return $this->rx;
+    }
+
+    /**
+     * @param bool $rx
+     * @return EpisodeEntity
+     */
+    public function setRx(bool $rx): EpisodeEntity
+    {
+        $this->rx = $rx;
+        return $this;
+    }
+
     public function computeHash(): string
     {
 
 
         $textToHash =
             $this->getPatientNhc() .
-            $this->getPatientName().
-            $this->getHospitalUniqueRef().
-            $this->getPatientLastname1().
-            $this->getPatientLastname2().
-            $this->getAge().
-            $this->getGender().
-            $this->getPatientTelephone().
-            $this->getMaxWaitingDays().
-            $this->getEnteredWaitingList().
-            $this->getForecastedDurationMin().
-            $this->getRealStartHour().
-            $this->getRealFinishHour().
-            $this->getStartHour().
-            $this->getFinishHour().
-            $this->getScheduledDate().
-            $this->getServiceName().
-            $this->getQuirofanName().
-            $this->getProcedure().
-            $this->getProcedureDescription().
-            $this->getIsUrgent().
-            $this->is_complicated().
-            $this->is_isolated().
-            $this->isSintrom().
-            $this->isLaparoscopia().
-            $this->isAnesthesiaAppreciation().
-            $this->getPreanesthesiaNotes().
-            $this->getAnesthesiologistName().
-            $this->getAnesthesiologistRef().
-            $this->getDoctorNotes().
-            $this->getDoctorName().
-            $this->getDoctorRef().
-            $this->getSurgeonRef().
-            $this->getSurgeonName().
-            $this->getOrderedBydoctorref().
-            $this->getOrderedByDoctorName().
-            $this->getPriority().
-            $this->getEntryType();
+            $this->getPatientName() .
+            $this->getHospitalUniqueRef() .
+            $this->getPatientLastname1() .
+            $this->getPatientLastname2() .
+            $this->getAge() .
+            $this->getGender() .
+            $this->getPatientTelephone() .
+            $this->getMaxWaitingDays() .
+            $this->getEnteredWaitingList() .
+            $this->getForecastedDurationMin() .
+            $this->getRealStartTime() .
+            $this->getRealFinishTime() .
+            $this->getStartHour() .
+            $this->getFinishHour() .
+            $this->getScheduledDate() .
+            $this->getServiceName() .
+            $this->getQuirofanName() .
+            $this->getProcedure() .
+            $this->getProcedureDescription() .
+            $this->getIsUrgent() .
+            $this->is_complicated() .
+            $this->is_isolated() .
+            $this->isSintrom() .
+            $this->isLaparoscopia() .
+            $this->isAnesthesiaAppreciation() .
+            $this->getPreanesthesiaNotes() .
+            $this->getAnesthesiologistName() .
+            $this->getAnesthesiologistRef() .
+            $this->getDoctorNotes() .
+            $this->getDoctorName() .
+            $this->getDoctorRef() .
+            $this->getSurgeonRef() .
+            $this->getSurgeonName() .
+            $this->getOrderedByDoctorRef() .
+            $this->getOrderedByDoctorName() .
+            $this->getPriority() .
+            $this->getEntryType() .
+            $this->isRx();
 
         return md5($textToHash);
 
@@ -838,7 +862,6 @@ class EpisodeEntity
         //$textToHash .= $this->doctorName;
 
     }
-
 
 
 }
