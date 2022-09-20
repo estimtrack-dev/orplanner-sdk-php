@@ -397,24 +397,27 @@ class EpisodeEntity
     /**
      * @return string|null
      */
-    public function getRealStarthour(): ?string
+    public function getRealStartHour(): ?string
     {
         return $this->real_start_hour;
     }
 
     /**
      * @param string|null $real_start_hour
+     * @return EpisodeEntity
      */
-    public function setRealStarthour(?string $real_start_hour): void
+    public function setRealStartHour(?string $real_start_hour): EpisodeEntity
     {
         $this->real_start_hour = $real_start_hour;
+        return $this;
+
     }
 
 
     /**
      * @return string|null
      */
-    public function getRealFinishhour(): ?string
+    public function getRealFinishHour(): ?string
     {
         return $this->real_finish_hour;
     }
@@ -423,7 +426,7 @@ class EpisodeEntity
      * @param string|null $real_finish_hour
      * @return EpisodeEntity
      */
-    public function setRealFinishhour(?string $real_finish_hour): EpisodeEntity
+    public function setRealFinishHour(?string $real_finish_hour): EpisodeEntity
     {
         $this->real_finish_hour = $real_finish_hour;
         return $this;
@@ -785,8 +788,8 @@ class EpisodeEntity
             $this->getMaxWaitingDays().
             $this->getEnteredWaitingList().
             $this->getForecastedDurationMin().
-            $this->getRealStarthour().
-            $this->getRealFinishhour().
+            $this->getRealStartHour().
+            $this->getRealFinishHour().
             $this->getStartHour().
             $this->getFinishHour().
             $this->getScheduledDate().
