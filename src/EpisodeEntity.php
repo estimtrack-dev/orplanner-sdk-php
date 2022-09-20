@@ -2,7 +2,6 @@
 
 namespace Estimtrack\Orplannersdkphp;
 
-use JetBrains\PhpStorm\Pure;
 
 class EpisodeEntity
 {
@@ -774,7 +773,7 @@ class EpisodeEntity
         $this->entryType = $entryType;
     }
 
-    #[Pure] public function computeHash(): string
+    public function computeHash(): string
     {
 
 
