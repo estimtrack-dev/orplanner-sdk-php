@@ -24,22 +24,9 @@ class ORPlannerAPIClient
     public function sendEpisode(EpisodeEntity $entity, $guzzleConfig = []): string
     {
 
-        $params = [
-            'hospital_unique_ref' => $entity->getHospitalUniqueRef(),
-            'max_waiting_days' => $entity->getMaxWaitingListDays(),
-            'entered_waiting_list' => $entity->getWaitingListEntryDay(),
-            'procedure_ref' => $entity->getProcedure(),
-            'description_procedure_type' => $entity->getProcedureDescription(),
-            'service_name' => $entity->getServiceName(),
-            'forecasted_duration_min' => $entity->getForecastedDurationMin(),
-            'is_urgent' => $entity->getIsUrgent(),
-            'patient_name' => $entity->getPatientName(),
-            'patient_age' => $entity->getAge(),
-            'patient_telephone' => $entity->getTelephone(),
-            'patient_nhc' => $entity->getNhc(),
-            'hash' => $entity->computeHash(),
 
-        ];
+        $params = (array)json_decode(json_encode($entity));
+        $params['hash'] = $entity->computeHash();
 
 
         $sendEpisodeUrl = 'public/episodes';
@@ -47,6 +34,9 @@ class ORPlannerAPIClient
         $response = $client->request('POST', $this->url . $sendEpisodeUrl, [
             'form_params' => $params
         ]);
+
+
+
 
         return $response->getBody()->getContents();
     }
@@ -58,7 +48,7 @@ class ORPlannerAPIClient
      */
     public function getHashesOfEpisodeRefs(array $arrayOfRefs, $guzzleConfig = [])
     {
-        $body  =[
+        $body = [
             'refs' => $arrayOfRefs
         ];
         $getHashesUrl = 'public/get_hashes';
@@ -69,7 +59,7 @@ class ORPlannerAPIClient
             ]
         );
 
-        return json_decode($response->getBody()->getContents(),true)['data'];
+        return json_decode($response->getBody()->getContents(), true)['data'];
     }
 
     public function cancelEpisode()

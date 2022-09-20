@@ -3,6 +3,7 @@
 namespace Estimtrack\Orplannersdkphp\Tests\Feature;
 
 use Estimtrack\Orplannersdkphp\ORPlannerAPIClient;
+use GuzzleHttp\Exception\GuzzleException;
 use Tests\TestCase;
 
 class GetHashesTest extends TestCase
@@ -11,7 +12,7 @@ class GetHashesTest extends TestCase
      * A basic test example.
      *
      * @return void
-     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws GuzzleException
      */
     public function test_get_hashes()
     {

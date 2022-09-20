@@ -17,214 +17,210 @@ class EpisodeEntity
 
     /** @var string   mandatory field , patient identifier
      */
-    private string $nhc;
+    public string $patient_nhc;
 
     /** @var string   mandatory field , patient name
      */
-    private string $patientName = '';
+    public string $patient_name = '';
 
     /** @var string  mandatory field, episode unique identifier
      */
-    private string $hospitalUniqueRef;
+    public string $hospital_unique_ref;
 
 
     //patient info
 
     /** @var ?string  optional field,  patient first surname
      */
-    private ?string $patientLastName1 = null;
+    public ?string $patient_last_name_1 = null;
 
     /** @var ?string  optional field,  patient last surname
      */
-    private ?string $patientLastName2 = null;
+    public ?string $patient_last_name_2 = null;
 
     /** @var ?int  optional field , patient age
      */
-    private ?int $age = null;
+    public ?int $age = null;
 
     /** @var ?string  optional field , patient gender => m = male, f = female
      */
-    private ?string $gender = null;
+    public ?string $gender = null;
 
-    /** @var ?int  optional field, patient telephone
+    /** @var string  optional field, patient telephone
      */
-    private ?int $telephone = null;
-
+    public string $patient_telephone = '';
 
     // dates, hours and times
 
     /** @var ?int  optional field, maximum amount of days the patient can spent in waiting list
      */
-    private ?int $maxWaitingListDays = null;
+    public ?int $max_waiting_days = null;
 
     /** @var ?string  optional field, day patient got in the waiting list, format Y-m-d
      */
-    private ?string $waitingListEntryDay =null;
+    public ?string $entered_waiting_list =null;
 
     /** @var ?int  optional field, amount of time in minutes the intervention is expected to be
      */
-    private ?int $forecastedDurationMin = null;
+    public ?int $forecasted_duration_min = null;
 
     /** @var ?string  optional field, which hour did the intervention start, format H:i:s
      */
-    private ?string $realStartHour = null;
+    public ?string $real_start_hour = null;
 
     /** @var ?string  optional field, which hour did the intervention finish, format H:i:s
      */
-    private ?string $realFinishHour = null;
+    public ?string $real_finish_hour = null;
 
     /** @var ?string  optional field, which is the intervention supposed to start, format H:i:s
      */
-    private ?string $startHour = null;
+    public ?string $start_hour = null;
 
     /** @var ?string  optional field, which is the intervention supposed to finish, format H:i:s
      */
-    private ?string $finishHour = null;
+    public ?string $finish_hour = null;
 
     /** @var ?string  optional field, which day is the intervention supposed to take place, format Y-m-d
      */
-    private ?string $scheduledDate = null;
+    public ?string $scheduled_date = null;
 
 
     //location
-
-
     /** @var ?string  optional field, name of the service the episode is associated with
      */
-    private ?string $serviceName = null;
+    public ?string $service_name = null;
 
     /** @var ?string  optional field, name of the quirofan the episode is associated with
      */
-    private ?string $quirofanName = null;
+    public ?string $quirofan_name = null;
 
 
     //equipment
-
-
     /** @var ?string  optional field, name of the procedure that the patient will be subject to
      */
-    private ?string $procedure = null;
+    public ?string $procedure = null;
 
     /** @var ?string  optional field,  procedure description  the patient will be subject to
      */
-    private ?string $procedureDescription = null;
+    public ?string $procedure_description = null;
 
 
     //conditions
 
     /** @var bool  optional field , true   -> episode is urgent  / false  -> is not urgent
      */
-    private bool $isUrgent = false;
+    public bool $is_urgent = false;
 
     /** @var bool  optional field , true   -> episode/intervention has complexity   / false  -> is has not
      */
-    private bool $isComplicated =  false;
+    public bool $is_complicated =  false;
 
     /** @var bool  optional field , true   -> isolated  / false  -> it is not
      */
-    private bool $isIsolated = false;
+    public bool $is_isolated = false;
 
     /** @var bool  optional field , true   -> needs sintrom   / false  -> it does not
      */
-    private bool $sintrom = false;
+    public bool $sintrom = false;
 
     /** @var bool  optional field , true   -> has equipment laparo  / false  -> it has not
      */
-    private bool $equipmentLaparo = false;
+    public bool $laparoscopia = false;
 
 
     /** @var bool  optional field , true   -> has patient checks for anesthesia have been made  / false  -> not been made
      */
-    private bool $anesthesiaAppreciation = false;
+    public bool $anesthesia_appreciation = false;
+
 
     //doctors, name , info  and other fields
 
     /** @var ?string  optional field,  notes taken during pre anesthesia
      */
-    private ?string $preanesthesiaNotes = null;
+    public ?string $preanesthesia_notes = null;
 
 
     /** @var ?string  optional field, anesthesiologist name
      */
-    private ?string $anesthesiologistName = null;
+    public ?string $anesthesiologist_name = null;
 
     /** @var ?string  optional field, anesthesiologist ref
      */
-    private ?string $anesthesiologistRef = null;
+    public ?string $anesthesiologist_ref = null;
 
     /** @var ?string  optional field,  notes taken by the doctor, but can by used as a general field for comments .
      */
-    private ?string $doctorNotes = null;
+    public ?string $doctor_notes = null;
 
     /** @var ?string  optional field,  name of the doctor in charge of the patient
      */
-    private ?string $doctorName = null;
+    public ?string $doctor_name = null;
 
     /** @var ?string  optional field,  ref of the doctor in charge of the patient
      */
-    private ?string $doctorRef = null;
+    public ?string $doctor_ref = null;
 
     /** @var ?string  optional field, ref  of the surgeon in charge of performing the intervention .
      */
-    private ?string $surgeonRef = null;
+    public ?string $surgeon_ref = null;
 
     /** @var ?string  optional field, name of the surgeon in charge of performing the intervention .
      */
-    private ?string $surgeonName = null;
+    public ?string $surgeon_name = null;
 
     /** @var ?string  optional field, ref of the doctor that ordered the intervention .
      */
-    private ?string $orderedByDoctorRef = null;
+    public ?string $ordered_by_doctor_ref = null;
 
 
     /** @var ?string  optional field, name of the doctor that ordered the intervention .
      */
-    private ?string $orderedByDoctorName = null;
+    public ?string $ordered_by_doctor_name = null;
 
     //others
 
     /** @var ?string   optional field , text specifying priority
      */
-    private ?string  $priority =null;
+    public ?string  $priority =null;
 
     /** @var ?string   optional field , text specifying  type of patient admission
      */
-    private ?string $entryType = null;
+    public ?string $entry_type = null;
 
 
     public function getIsUrgent(): bool
     {
-        return $this->isUrgent;
+        return $this->is_urgent;
     }
 
-    public function setIsUrgent($isUrgent): self
+    public function setIsUrgent($is_urgent): self
     {
-        $this->isUrgent = $isUrgent;
+        $this->is_urgent = $is_urgent;
         return $this;
     }
 
-    public function getNhc(): string
+    public function getPatientNhc(): string
     {
-        return $this->nhc;
+        return $this->patient_nhc;
     }
 
 
-    public function setNhc($nhc): self
+    public function setPatientNhc($patient_nhc): self
     {
-        $this->nhc = $nhc;
+        $this->patient_nhc = $patient_nhc;
         return $this;
     }
 
 
     public function getPatientName(): string
     {
-        return $this->patientName;
+        return $this->patient_name;
     }
 
 
     public function setPatientName($patientName): self
     {
-        $this->patientName = $patientName;
+        $this->patient_name = $patientName;
         return $this;
     }
 
@@ -241,76 +237,76 @@ class EpisodeEntity
     }
 
 
-    public function getTelephone(): ?int
+    public function getPatientTelephone(): ?int
     {
-        return $this->telephone;
+        return $this->patient_telephone;
     }
 
-    public function setTelephone($telephone): self
+    public function setPatientTelephone($patient_telephone): self
     {
-        $this->telephone = $telephone;
+        $this->patient_telephone = $patient_telephone;
         return $this;
     }
 
 
     public function getHospitalUniqueRef(): string
     {
-        return $this->hospitalUniqueRef;
+        return $this->hospital_unique_ref;
     }
 
     public function setHospitalUniqueRef($hospitalUniqueRef): self
     {
-        $this->hospitalUniqueRef = $hospitalUniqueRef;
+        $this->hospital_unique_ref = $hospitalUniqueRef;
         return $this;
     }
 
 
-    public function getMaxWaitingListDays(): ?int
+    public function getMaxWaitingDays(): ?int
     {
-        return $this->maxWaitingListDays;
+        return $this->max_waiting_days;
     }
 
-    public function setMaxWaitingListDays($maxWaitingListDays): self
+    public function setMaxWaitinglistdays($max_waiting_days): self
     {
-        $this->maxWaitingListDays = $maxWaitingListDays;
+        $this->max_waiting_days = $max_waiting_days;
         return $this;
     }
 
 
-    public function getWaitingListEntryDay(): ?string
+    public function getEnteredWaitingList(): ?string
     {
-        return $this->waitingListEntryDay;
+        return $this->entered_waiting_list;
     }
 
 
-    public function setWaitingListEntryDay($waitingListEntryDay): self
+    public function setEnteredWaitingList($entered_waiting_list): self
     {
-        $this->waitingListEntryDay = $waitingListEntryDay;
+        $this->entered_waiting_list = $entered_waiting_list;
         return $this;
     }
 
 
     public function getForecastedDurationMin(): ?int
     {
-        return $this->forecastedDurationMin;
+        return $this->forecasted_duration_min;
     }
 
 
-    public function setForecastedDurationMin($forecastedDurationMin): self
+    public function setForecastedDurationMin($forecasted_duration_min): self
     {
-        $this->forecastedDurationMin = $forecastedDurationMin;
+        $this->forecasted_duration_min = $forecasted_duration_min;
         return $this;
     }
 
 
     public function getServiceName(): ?string
     {
-        return $this->serviceName;
+        return $this->service_name;
     }
 
-    public function setServiceName($serviceName): self
+    public function setServiceName($service_name): self
     {
-        $this->serviceName = $serviceName;
+        $this->service_name = $service_name;
         return $this;
     }
 
@@ -330,60 +326,60 @@ class EpisodeEntity
 
     public function getProcedureDescription(): ?string
     {
-        return $this->procedureDescription;
+        return $this->procedure_description;
     }
 
 
-    public function setProcedureDescription($procedureDescription): self
+    public function setProcedureDescription($procedure_description): self
     {
-        $this->procedureDescription = $procedureDescription;
+        $this->procedure_description = $procedure_description;
         return $this;
     }
 
 
     public function getPreanesthesiaNotes(): ?string
     {
-        return $this->preanesthesiaNotes;
+        return $this->preanesthesia_notes;
     }
 
 
-    public function setPreanesthesiaNotes($preanesthesiaNotes): self
+    public function setPreanesthesiaNotes($preanesthesia_notes): self
     {
-        $this->preanesthesiaNotes = $preanesthesiaNotes;
+        $this->preanesthesia_notes = $preanesthesia_notes;
         return $this;
     }
 
 
     public function getDoctorName(): ?string
     {
-        return $this->doctorName;
+        return $this->doctor_name;
     }
 
     public function setDoctorName($doctor): self
     {
-        $this->doctorName = $doctor;
+        $this->doctor_name = $doctor;
         return $this;
     }
 
-    public function getPatientLastName1(): ?string
+    public function getPatientLastname1(): ?string
     {
-        return $this->patientLastName1;
+        return $this->patient_last_name_1;
     }
 
-    public function setPatientLastName1(?string $patientLastName1): EpisodeEntity
+    public function setPatientLastname1(?string $patient_last_name_1): EpisodeEntity
     {
-        $this->patientLastName1 = $patientLastName1;
+        $this->patient_last_name_1 = $patient_last_name_1;
         return $this;
     }
 
-    public function getPatientLastName2(): ?string
+    public function getPatientLastname2(): ?string
     {
-        return $this->patientLastName2;
+        return $this->patient_last_name_2;
     }
 
-    public function setPatientLastName2(?string $patientLastName2): EpisodeEntity
+    public function setPatientLastname2(?string $patient_last_name_2): EpisodeEntity
     {
-        $this->patientLastName2 = $patientLastName2;
+        $this->patient_last_name_2 = $patient_last_name_2;
         return $this;
     }
 
@@ -401,35 +397,35 @@ class EpisodeEntity
     /**
      * @return string|null
      */
-    public function getRealStartHour(): ?string
+    public function getRealStarthour(): ?string
     {
-        return $this->realStartHour;
+        return $this->real_start_hour;
     }
 
     /**
-     * @param string|null $realStartHour
+     * @param string|null $real_start_hour
      */
-    public function setRealStartHour(?string $realStartHour): void
+    public function setRealStarthour(?string $real_start_hour): void
     {
-        $this->realStartHour = $realStartHour;
+        $this->real_start_hour = $real_start_hour;
     }
 
 
     /**
      * @return string|null
      */
-    public function getRealFinishHour(): ?string
+    public function getRealFinishhour(): ?string
     {
-        return $this->realFinishHour;
+        return $this->real_finish_hour;
     }
 
     /**
-     * @param string|null $realFinishHour
+     * @param string|null $real_finish_hour
      * @return EpisodeEntity
      */
-    public function setRealFinishHour(?string $realFinishHour): EpisodeEntity
+    public function setRealFinishhour(?string $real_finish_hour): EpisodeEntity
     {
-        $this->realFinishHour = $realFinishHour;
+        $this->real_finish_hour = $real_finish_hour;
         return $this;
     }
 
@@ -438,16 +434,16 @@ class EpisodeEntity
      */
     public function getStartHour(): ?string
     {
-        return $this->startHour;
+        return $this->start_hour;
     }
 
     /**
-     * @param string|null $startHour
+     * @param string|null $start_hour
      * @return EpisodeEntity
      */
-    public function setStartHour(?string $startHour): EpisodeEntity
+    public function setStartHour(?string $start_hour): EpisodeEntity
     {
-        $this->startHour = $startHour;
+        $this->start_hour = $start_hour;
         return $this;
     }
 
@@ -456,16 +452,16 @@ class EpisodeEntity
      */
     public function getFinishHour(): ?string
     {
-        return $this->finishHour;
+        return $this->finish_hour;
     }
 
     /**
-     * @param string|null $finishHour
+     * @param string|null $finish_hour
      * @return EpisodeEntity
      */
-    public function setFinishHour(?string $finishHour): EpisodeEntity
+    public function setFinishHour(?string $finish_hour): EpisodeEntity
     {
-        $this->finishHour = $finishHour;
+        $this->finish_hour = $finish_hour;
         return $this;
     }
 
@@ -474,16 +470,16 @@ class EpisodeEntity
      */
     public function getScheduledDate(): ?string
     {
-        return $this->scheduledDate;
+        return $this->scheduled_date;
     }
 
     /**
-     * @param string|null $scheduledDate
+     * @param string|null $scheduled_date
      * @return EpisodeEntity
      */
-    public function setScheduledDate(?string $scheduledDate): EpisodeEntity
+    public function setScheduledDate(?string $scheduled_date): EpisodeEntity
     {
-        $this->scheduledDate = $scheduledDate;
+        $this->scheduled_date = $scheduled_date;
         return $this;
     }
 
@@ -492,52 +488,52 @@ class EpisodeEntity
      */
     public function getQuirofanName(): ?string
     {
-        return $this->quirofanName;
+        return $this->quirofan_name;
     }
 
     /**
-     * @param string|null $quirofanName
+     * @param string|null $quirofan_name
      * @return EpisodeEntity
      */
-    public function setQuirofanName(?string $quirofanName): EpisodeEntity
+    public function setQuirofanName(?string $quirofan_name): EpisodeEntity
     {
-        $this->quirofanName = $quirofanName;
+        $this->quirofan_name = $quirofan_name;
         return $this;
     }
 
     /**
      * @return bool
      */
-    public function isComplicated(): bool
+    public function is_complicated(): bool
     {
-        return $this->isComplicated;
+        return $this->is_complicated;
     }
 
     /**
-     * @param bool $isComplicated
+     * @param bool $is_complicated
      * @return EpisodeEntity
      */
-    public function setIsComplicated(bool $isComplicated): EpisodeEntity
+    public function setIsComplicated(bool $is_complicated): EpisodeEntity
     {
-        $this->isComplicated = $isComplicated;
+        $this->is_complicated = $is_complicated;
         return $this;
     }
 
     /**
      * @return bool
      */
-    public function isIsolated(): bool
+    public function is_isolated(): bool
     {
-        return $this->isIsolated;
+        return $this->is_isolated;
     }
 
     /**
-     * @param bool $isIsolated
+     * @param bool $is_isolated
      * @return EpisodeEntity
      */
-    public function setIsIsolated(bool $isIsolated): EpisodeEntity
+    public function setIsIsolated(bool $is_isolated): EpisodeEntity
     {
-        $this->isIsolated = $isIsolated;
+        $this->is_isolated = $is_isolated;
         return $this;
     }
 
@@ -562,18 +558,18 @@ class EpisodeEntity
     /**
      * @return bool
      */
-    public function isEquipmentLaparo(): bool
+    public function isLaparoscopia(): bool
     {
-        return $this->equipmentLaparo;
+        return $this->laparoscopia;
     }
 
     /**
-     * @param bool $equipmentLaparo
+     * @param bool $laparoscopia
      * @return EpisodeEntity
      */
-    public function setEquipmentLaparo(bool $equipmentLaparo): EpisodeEntity
+    public function setLaparoscopia(bool $laparoscopia): EpisodeEntity
     {
-        $this->equipmentLaparo = $equipmentLaparo;
+        $this->laparoscopia = $laparoscopia;
         return $this;
     }
 
@@ -582,16 +578,16 @@ class EpisodeEntity
      */
     public function isAnesthesiaAppreciation(): bool
     {
-        return $this->anesthesiaAppreciation;
+        return $this->anesthesia_appreciation;
     }
 
     /**
-     * @param bool $anesthesiaAppreciation
+     * @param bool $anesthesia_appreciation
      * @return EpisodeEntity
      */
-    public function setAnesthesiaAppreciation(bool $anesthesiaAppreciation): EpisodeEntity
+    public function setAnesthesiaAppreciation(bool $anesthesia_appreciation): EpisodeEntity
     {
-        $this->anesthesiaAppreciation = $anesthesiaAppreciation;
+        $this->anesthesia_appreciation = $anesthesia_appreciation;
         return $this;
     }
 
@@ -600,16 +596,16 @@ class EpisodeEntity
      */
     public function getAnesthesiologistName(): ?string
     {
-        return $this->anesthesiologistName;
+        return $this->anesthesiologist_name;
     }
 
     /**
-     * @param string|null $anesthesiologistName
+     * @param string|null $anesthesiologist_name
      * @return EpisodeEntity
      */
-    public function setAnesthesiologistName(?string $anesthesiologistName): EpisodeEntity
+    public function setAnesthesiologistName(?string $anesthesiologist_name): EpisodeEntity
     {
-        $this->anesthesiologistName = $anesthesiologistName;
+        $this->anesthesiologist_name = $anesthesiologist_name;
         return $this;
     }
 
@@ -618,16 +614,16 @@ class EpisodeEntity
      */
     public function getAnesthesiologistRef(): ?string
     {
-        return $this->anesthesiologistRef;
+        return $this->anesthesiologist_ref;
     }
 
     /**
-     * @param string|null $anesthesiologistRef
+     * @param string|null $anesthesiologist_ref
      * @return EpisodeEntity
      */
-    public function setAnesthesiologistRef(?string $anesthesiologistRef): EpisodeEntity
+    public function setAnesthesiologistRef(?string $anesthesiologist_ref): EpisodeEntity
     {
-        $this->anesthesiologistRef = $anesthesiologistRef;
+        $this->anesthesiologist_ref = $anesthesiologist_ref;
         return $this;
     }
 
@@ -636,16 +632,16 @@ class EpisodeEntity
      */
     public function getDoctorNotes(): ?string
     {
-        return $this->doctorNotes;
+        return $this->doctor_notes;
     }
 
     /**
-     * @param string|null $doctorNotes
+     * @param string|null $doctor_notes
      * @return EpisodeEntity
      */
-    public function setDoctorNotes(?string $doctorNotes): EpisodeEntity
+    public function setDoctorNotes(?string $doctor_notes): EpisodeEntity
     {
-        $this->doctorNotes = $doctorNotes;
+        $this->doctor_notes = $doctor_notes;
         return $this;
     }
 
@@ -654,16 +650,16 @@ class EpisodeEntity
      */
     public function getDoctorRef(): ?string
     {
-        return $this->doctorRef;
+        return $this->doctor_ref;
     }
 
     /**
-     * @param string|null $doctorRef
+     * @param string|null $doctor_ref
      * @return EpisodeEntity
      */
-    public function setDoctorRef(?string $doctorRef): EpisodeEntity
+    public function setDoctorRef(?string $doctor_ref): EpisodeEntity
     {
-        $this->doctorRef = $doctorRef;
+        $this->doctor_ref = $doctor_ref;
         return $this;
     }
 
@@ -672,16 +668,16 @@ class EpisodeEntity
      */
     public function getSurgeonRef(): ?string
     {
-        return $this->surgeonRef;
+        return $this->surgeon_ref;
     }
 
     /**
-     * @param string|null $surgeonRef
+     * @param string|null $surgeon_ref
      * @return EpisodeEntity
      */
-    public function setSurgeonRef(?string $surgeonRef): EpisodeEntity
+    public function setSurgeonRef(?string $surgeon_ref): EpisodeEntity
     {
-        $this->surgeonRef = $surgeonRef;
+        $this->surgeon_ref = $surgeon_ref;
         return $this;
     }
 
@@ -690,34 +686,34 @@ class EpisodeEntity
      */
     public function getSurgeonName(): ?string
     {
-        return $this->surgeonName;
+        return $this->surgeon_name;
     }
 
     /**
-     * @param string|null $surgeonName
+     * @param string|null $surgeon_name
      * @return EpisodeEntity
      */
-    public function setSurgeonName(?string $surgeonName): EpisodeEntity
+    public function setSurgeonName(?string $surgeon_name): EpisodeEntity
     {
-        $this->surgeonName = $surgeonName;
+        $this->surgeon_name = $surgeon_name;
         return $this;
     }
 
     /**
      * @return string|null
      */
-    public function getOrderedByDoctorRef(): ?string
+    public function getOrderedBydoctorref(): ?string
     {
-        return $this->orderedByDoctorRef;
+        return $this->ordered_by_doctor_ref;
     }
 
     /**
-     * @param string|null $orderedByDoctorRef
+     * @param string|null $ordered_by_doctor_ref
      * @return EpisodeEntity
      */
-    public function setOrderedByDoctorRef(?string $orderedByDoctorRef): EpisodeEntity
+    public function setOrderedByDoctorRef(?string $ordered_by_doctor_ref): EpisodeEntity
     {
-        $this->orderedByDoctorRef = $orderedByDoctorRef;
+        $this->ordered_by_doctor_ref = $ordered_by_doctor_ref;
         return $this;
     }
 
@@ -726,16 +722,16 @@ class EpisodeEntity
      */
     public function getOrderedByDoctorName(): ?string
     {
-        return $this->orderedByDoctorName;
+        return $this->ordered_by_doctor_name;
     }
 
     /**
-     * @param string|null $orderedByDoctorName
+     * @param string|null $ordered_by_doctor_name
      * @return EpisodeEntity
      */
-    public function setOrderedByDoctorName(?string $orderedByDoctorName): EpisodeEntity
+    public function setOrderedByDoctorName(?string $ordered_by_doctor_name): EpisodeEntity
     {
-        $this->orderedByDoctorName = $orderedByDoctorName;
+        $this->ordered_by_doctor_name = $ordered_by_doctor_name;
         return $this;
     }
 
@@ -762,15 +758,15 @@ class EpisodeEntity
      */
     public function getEntryType(): ?string
     {
-        return $this->entryType;
+        return $this->entry_type;
     }
 
     /**
-     * @param string|null $entryType
+     * @param string|null $entry_type
      */
-    public function setEntryType(?string $entryType): void
+    public function setEntryType(?string $entry_type): void
     {
-        $this->entryType = $entryType;
+        $this->entry_type = $entry_type;
     }
 
     public function computeHash(): string
@@ -778,19 +774,19 @@ class EpisodeEntity
 
 
         $textToHash =
-            $this->getNhc() .
+            $this->getPatientNhc() .
             $this->getPatientName().
             $this->getHospitalUniqueRef().
-            $this->getPatientLastName1().
-            $this->getPatientLastName2().
+            $this->getPatientLastname1().
+            $this->getPatientLastname2().
             $this->getAge().
             $this->getGender().
-            $this->getTelephone().
-            $this->getMaxWaitingListDays().
-            $this->getWaitingListEntryDay().
+            $this->getPatientTelephone().
+            $this->getMaxWaitingDays().
+            $this->getEnteredWaitingList().
             $this->getForecastedDurationMin().
-            $this->getRealStartHour().
-            $this->getRealFinishHour().
+            $this->getRealStarthour().
+            $this->getRealFinishhour().
             $this->getStartHour().
             $this->getFinishHour().
             $this->getScheduledDate().
@@ -799,10 +795,10 @@ class EpisodeEntity
             $this->getProcedure().
             $this->getProcedureDescription().
             $this->getIsUrgent().
-            $this->isComplicated().
-            $this->isIsolated().
+            $this->is_complicated().
+            $this->is_isolated().
             $this->isSintrom().
-            $this->isEquipmentLaparo().
+            $this->isLaparoscopia().
             $this->isAnesthesiaAppreciation().
             $this->getPreanesthesiaNotes().
             $this->getAnesthesiologistName().
@@ -812,7 +808,7 @@ class EpisodeEntity
             $this->getDoctorRef().
             $this->getSurgeonRef().
             $this->getSurgeonName().
-            $this->getOrderedByDoctorRef().
+            $this->getOrderedBydoctorref().
             $this->getOrderedByDoctorName().
             $this->getPriority().
             $this->getEntryType();
