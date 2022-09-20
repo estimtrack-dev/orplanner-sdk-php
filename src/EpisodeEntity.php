@@ -5,6 +5,9 @@ namespace Estimtrack\Orplannersdkphp;
 class EpisodeEntity
 {
 
+
+    /** standard formats for hours and dates respectively  */
+
     const FORMAT_ESTIMTRACK_HOUR = 'H:i:s';
     const FORMAT_ESTIMTRACK_DATE = 'Y-m-d';
 
@@ -177,12 +180,15 @@ class EpisodeEntity
      */
     private ?string $orderedByDoctorName;
 
-
     //others
 
     /** @var ?string   optional field , text specifying priority
      */
     private ?string  $priority =null;
+
+    /** @var ?string   optional field , text specifying  type of patient admission
+     */
+    private ?string $entryType = null;
 
 
     public function computeHash(): string
@@ -768,6 +774,22 @@ class EpisodeEntity
     {
         $this->priority = $priority;
         return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getEntryType(): ?string
+    {
+        return $this->entryType;
+    }
+
+    /**
+     * @param string|null $entryType
+     */
+    public function setEntryType(?string $entryType): void
+    {
+        $this->entryType = $entryType;
     }
 
 
