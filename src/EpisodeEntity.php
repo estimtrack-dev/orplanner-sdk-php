@@ -2,6 +2,8 @@
 
 namespace Estimtrack\Orplannersdkphp;
 
+use JetBrains\PhpStorm\Pure;
+
 class EpisodeEntity
 {
 
@@ -24,7 +26,7 @@ class EpisodeEntity
 
     /** @var string  mandatory field, episode unique identifier
      */
-    private string $hospital_unique_ref;
+    private string $hospitalUniqueRef;
 
 
     //patient info
@@ -58,7 +60,7 @@ class EpisodeEntity
 
     /** @var ?string  optional field, day patient got in the waiting list, format Y-m-d
      */
-    private ?string $waitingListEntryDay;
+    private ?string $waitingListEntryDay =null;
 
     /** @var ?int  optional field, amount of time in minutes the intervention is expected to be
      */
@@ -106,7 +108,7 @@ class EpisodeEntity
 
     /** @var ?string  optional field,  procedure description  the patient will be subject to
      */
-    private ?string $procedure_description = null;
+    private ?string $procedureDescription = null;
 
 
     //conditions
@@ -157,28 +159,28 @@ class EpisodeEntity
 
     /** @var ?string  optional field,  name of the doctor in charge of the patient
      */
-    private ?string $doctorName;
+    private ?string $doctorName = null;
 
     /** @var ?string  optional field,  ref of the doctor in charge of the patient
      */
-    private ?string $doctorRef;
+    private ?string $doctorRef = null;
 
     /** @var ?string  optional field, ref  of the surgeon in charge of performing the intervention .
      */
-    private ?string $surgeonRef;
+    private ?string $surgeonRef = null;
 
     /** @var ?string  optional field, name of the surgeon in charge of performing the intervention .
      */
-    private ?string $surgeonName;
+    private ?string $surgeonName = null;
 
     /** @var ?string  optional field, ref of the doctor that ordered the intervention .
      */
-    private ?string $orderedByDoctorRef;
+    private ?string $orderedByDoctorRef = null;
 
 
     /** @var ?string  optional field, name of the doctor that ordered the intervention .
      */
-    private ?string $orderedByDoctorName;
+    private ?string $orderedByDoctorName = null;
 
     //others
 
@@ -190,26 +192,6 @@ class EpisodeEntity
      */
     private ?string $entryType = null;
 
-
-    public function computeHash(): string
-    {
-        $textToHash = '';
-        $textToHash .= $this->isUrgent;
-        $textToHash .= $this->nhc;
-        $textToHash .= $this->patientName;
-        $textToHash .= $this->age;
-        $textToHash .= $this->telephone;
-        $textToHash .= $this->hospital_unique_ref;
-        $textToHash .= $this->maxWaitingListDays;
-        $textToHash .= $this->waitingListEntryDay;
-        $textToHash .= $this->forecastedDurationMin;
-        $textToHash .= $this->serviceName;
-        $textToHash .= $this->procedure;
-        $textToHash .= $this->procedure_description;
-        $textToHash .= $this->preanesthesiaNotes;
-        $textToHash .= $this->doctorName;
-        return md5($textToHash);
-    }
 
     public function getIsUrgent(): bool
     {
@@ -274,12 +256,12 @@ class EpisodeEntity
 
     public function getHospitalUniqueRef(): string
     {
-        return $this->hospital_unique_ref;
+        return $this->hospitalUniqueRef;
     }
 
-    public function setHospitalUniqueRef($hospital_unique_ref): static
+    public function setHospitalUniqueRef($hospitalUniqueRef): static
     {
-        $this->hospital_unique_ref = $hospital_unique_ref;
+        $this->hospitalUniqueRef = $hospitalUniqueRef;
         return $this;
     }
 
@@ -349,13 +331,13 @@ class EpisodeEntity
 
     public function getProcedureDescription(): ?string
     {
-        return $this->procedure_description;
+        return $this->procedureDescription;
     }
 
 
-    public function setProcedureDescription($procedure_description): static
+    public function setProcedureDescription($procedureDescription): static
     {
-        $this->procedure_description = $procedure_description;
+        $this->procedureDescription = $procedureDescription;
         return $this;
     }
 
@@ -791,6 +773,72 @@ class EpisodeEntity
     {
         $this->entryType = $entryType;
     }
+
+    #[Pure] public function computeHash(): string
+    {
+
+
+        $textToHash =
+
+            $this->getNhc() .
+            $this->getPatientName().
+            $this->getHospitalUniqueRef().
+            $this->getPatientLastName1().
+            $this->getPatientLastName2().
+            $this->getAge().
+            $this->getGender().
+            $this->getTelephone().
+            $this->getMaxWaitingListDays().
+            $this->getWaitingListEntryDay().
+            $this->getForecastedDurationMin().
+            $this->getRealStartHour().
+            $this->getRealFinishHour().
+            $this->getStartHour().
+            $this->getFinishHour().
+            $this->getScheduledDate().
+            $this->getServiceName().
+            $this->getQuirofanName().
+            $this->getProcedure().
+            $this->getProcedureDescription().
+            $this->getIsUrgent().
+            $this->isComplicated().
+            $this->isIsolated().
+            $this->isSintrom().
+            $this->isEquipmentLaparo().
+            $this->isAnesthesiaAppreciation().
+            $this->getPreanesthesiaNotes().
+            $this->getAnesthesiologistName().
+            $this->getAnesthesiologistRef().
+            $this->getDoctorNotes().
+            $this->getDoctorName().
+            $this->getDoctorRef().
+            $this->getSurgeonRef().
+            $this->getSurgeonName().
+            $this->getOrderedByDoctorRef().
+            $this->getOrderedByDoctorName().
+            $this->getPriority().
+            $this->getEntryType();
+
+        return md5($textToHash);
+
+        //$textToHash = '';
+        //$textToHash = $this->isUrgent;
+        //$textToHash .= $this->nhc;
+        //$textToHash .= $this->patientName;
+        //$textToHash .= $this->age;
+        //$textToHash .= $this->telephone;
+        //$textToHash .= $this->hospitalUniqueRef;
+        //$textToHash .= $this->maxWaitingListDays;
+        //$textToHash .= $this->waitingListEntryDay;
+        //$textToHash .= $this->forecastedDurationMin;
+        //$textToHash .= $this->serviceName;
+        //$textToHash .= $this->procedure;
+        //$textToHash .= $this->procedureDescription;
+        //$textToHash .= $this->preanesthesiaNotes;
+        //$textToHash .= $this->doctorName;
+
+    }
+
 
 
 }

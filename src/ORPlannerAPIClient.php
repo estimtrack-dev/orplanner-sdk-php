@@ -4,6 +4,7 @@ namespace Estimtrack\Orplannersdkphp;
 
 
 use GuzzleHttp\Client;
+use GuzzleHttp\Exception\GuzzleException;
 
 class ORPlannerAPIClient
 {
@@ -17,6 +18,9 @@ class ORPlannerAPIClient
         $this->url = $core_api_url;
     }
 
+    /**
+     * @throws GuzzleException
+     */
     public function sendEpisode(EpisodeEntity $entity, $guzzleConfig = []): string
     {
 
@@ -50,7 +54,7 @@ class ORPlannerAPIClient
 
     /**
      * @param array $arrayOfRefs = ['123923','1233249','123483','2345828']
-     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws GuzzleException
      */
     public function getHashesOfEpisodeRefs(array $arrayOfRefs, $guzzleConfig = [])
     {
