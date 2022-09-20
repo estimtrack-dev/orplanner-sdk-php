@@ -198,7 +198,7 @@ class EpisodeEntity
         return $this->isUrgent;
     }
 
-    public function setIsUrgent($isUrgent): static
+    public function setIsUrgent($isUrgent): self
     {
         $this->isUrgent = $isUrgent;
         return $this;
@@ -210,7 +210,7 @@ class EpisodeEntity
     }
 
 
-    public function setNhc($nhc): static
+    public function setNhc($nhc): self
     {
         $this->nhc = $nhc;
         return $this;
@@ -223,7 +223,7 @@ class EpisodeEntity
     }
 
 
-    public function setPatientName($patientName): static
+    public function setPatientName($patientName): self
     {
         $this->patientName = $patientName;
         return $this;
@@ -235,7 +235,7 @@ class EpisodeEntity
         return $this->age;
     }
 
-    public function setAge($age): static
+    public function setAge($age): self
     {
         $this->age = $age;
         return $this;
@@ -247,7 +247,7 @@ class EpisodeEntity
         return $this->telephone;
     }
 
-    public function setTelephone($telephone): static
+    public function setTelephone($telephone): self
     {
         $this->telephone = $telephone;
         return $this;
@@ -259,7 +259,7 @@ class EpisodeEntity
         return $this->hospitalUniqueRef;
     }
 
-    public function setHospitalUniqueRef($hospitalUniqueRef): static
+    public function setHospitalUniqueRef($hospitalUniqueRef): self
     {
         $this->hospitalUniqueRef = $hospitalUniqueRef;
         return $this;
@@ -271,7 +271,7 @@ class EpisodeEntity
         return $this->maxWaitingListDays;
     }
 
-    public function setMaxWaitingListDays($maxWaitingListDays): static
+    public function setMaxWaitingListDays($maxWaitingListDays): self
     {
         $this->maxWaitingListDays = $maxWaitingListDays;
         return $this;
@@ -284,7 +284,7 @@ class EpisodeEntity
     }
 
 
-    public function setWaitingListEntryDay($waitingListEntryDay): static
+    public function setWaitingListEntryDay($waitingListEntryDay): self
     {
         $this->waitingListEntryDay = $waitingListEntryDay;
         return $this;
@@ -297,7 +297,7 @@ class EpisodeEntity
     }
 
 
-    public function setForecastedDurationMin($forecastedDurationMin): static
+    public function setForecastedDurationMin($forecastedDurationMin): self
     {
         $this->forecastedDurationMin = $forecastedDurationMin;
         return $this;
@@ -309,7 +309,7 @@ class EpisodeEntity
         return $this->serviceName;
     }
 
-    public function setServiceName($serviceName): static
+    public function setServiceName($serviceName): self
     {
         $this->serviceName = $serviceName;
         return $this;
@@ -322,7 +322,7 @@ class EpisodeEntity
     }
 
 
-    public function setProcedure($procedure): static
+    public function setProcedure($procedure): self
     {
         $this->procedure = $procedure;
         return $this;
@@ -335,7 +335,7 @@ class EpisodeEntity
     }
 
 
-    public function setProcedureDescription($procedureDescription): static
+    public function setProcedureDescription($procedureDescription): self
     {
         $this->procedureDescription = $procedureDescription;
         return $this;
@@ -348,7 +348,7 @@ class EpisodeEntity
     }
 
 
-    public function setPreanesthesiaNotes($preanesthesiaNotes): static
+    public function setPreanesthesiaNotes($preanesthesiaNotes): self
     {
         $this->preanesthesiaNotes = $preanesthesiaNotes;
         return $this;
@@ -360,7 +360,7 @@ class EpisodeEntity
         return $this->doctorName;
     }
 
-    public function setDoctorName($doctor): static
+    public function setDoctorName($doctor): self
     {
         $this->doctorName = $doctor;
         return $this;
