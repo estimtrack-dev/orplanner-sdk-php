@@ -66,23 +66,24 @@ class EpisodeEntity
 
     /** @var ?string  optional field, which hour did the intervention start, format H:i:s
      */
-    public ?string $real_start_time = null;
+    public ?string $confirmed_start_time = null;
 
     /** @var ?string  optional field, which hour did the intervention finish, format H:i:s
      */
-    public ?string $real_finish_time = null;
+    public ?string $confirmed_finish_time = null;
+    public ?string $confirmed_scheduled_date = null;
 
     /** @var ?string  optional field, which is the intervention supposed to start, format H:i:s
      */
-    public ?string $start_hour = null;
+    public ?string $tentative_start_hour = null;
 
     /** @var ?string  optional field, which is the intervention supposed to finish, format H:i:s
      */
-    public ?string $finish_hour = null;
+    public ?string $tentative_finish_hour = null;
 
     /** @var ?string  optional field, which day is the intervention supposed to take place, format Y-m-d
      */
-    public ?string $scheduled_date = null;
+    public ?string $tentative_scheduled_date = null;
 
 
     //location
@@ -401,18 +402,18 @@ class EpisodeEntity
     /**
      * @return string|null
      */
-    public function getRealStartTime(): ?string
+    public function getConfirmedStartTime(): ?string
     {
-        return $this->real_start_time;
+        return $this->confirmed_start_time;
     }
 
     /**
-     * @param string|null $real_start_time
+     * @param string|null $confirmed_start_time
      * @return EpisodeEntity
      */
-    public function setRealStartTime(?string $real_start_time): EpisodeEntity
+    public function setConfirmedStartTime(?string $confirmed_start_time): EpisodeEntity
     {
-        $this->real_start_time = $real_start_time;
+        $this->confirmed_start_time = $confirmed_start_time;
         return $this;
 
     }
@@ -421,74 +422,95 @@ class EpisodeEntity
     /**
      * @return string|null
      */
-    public function getRealFinishTime(): ?string
+    public function getConfirmedFinishTime(): ?string
     {
-        return $this->real_finish_time;
+        return $this->confirmed_finish_time;
     }
 
     /**
-     * @param string|null $real_finish_time
+     * @param string|null $confirmed_finish_time
      * @return EpisodeEntity
      */
-    public function setRealFinishTime(?string $real_finish_time): EpisodeEntity
+    public function setConfirmedFinishTime(?string $confirmed_finish_time): EpisodeEntity
     {
-        $this->real_finish_time = $real_finish_time;
+        $this->confirmed_finish_time = $confirmed_finish_time;
+        return $this;
+    }
+
+
+    /**
+     * @return string|null
+     */
+    public function getConfirmedScheduledDate(): ?string
+    {
+        return $this->confirmed_scheduled_date;
+    }
+
+    /**
+     * @param string|null $confirmed_scheduled_date
+     * @return EpisodeEntity
+     */
+    public function setConfirmedScheduledDate(?string $confirmed_scheduled_date): EpisodeEntity
+    {
+        $this->confirmed_scheduled_date = $confirmed_scheduled_date;
         return $this;
     }
 
     /**
      * @return string|null
      */
-    public function getStartHour(): ?string
+    public function getTentativeStartHour(): ?string
     {
-        return $this->start_hour;
+        return $this->tentative_start_hour;
     }
 
     /**
-     * @param string|null $start_hour
+     * @param string|null $tentative_start_hour
      * @return EpisodeEntity
      */
-    public function setStartHour(?string $start_hour): EpisodeEntity
+    public function setTentativeStartHour(?string $tentative_start_hour): EpisodeEntity
     {
-        $this->start_hour = $start_hour;
+        $this->tentative_start_hour = $tentative_start_hour;
         return $this;
     }
 
     /**
      * @return string|null
      */
-    public function getFinishHour(): ?string
+    public function getTentativeFinishHour(): ?string
     {
-        return $this->finish_hour;
+        return $this->tentative_finish_hour;
     }
 
     /**
-     * @param string|null $finish_hour
+     * @param string|null $tentative_finish_hour
      * @return EpisodeEntity
      */
-    public function setFinishHour(?string $finish_hour): EpisodeEntity
+    public function setTentativeFinishHour(?string $tentative_finish_hour): EpisodeEntity
     {
-        $this->finish_hour = $finish_hour;
+        $this->tentative_finish_hour = $tentative_finish_hour;
         return $this;
     }
 
     /**
      * @return string|null
      */
-    public function getScheduledDate(): ?string
+    public function getTentativeScheduledDate(): ?string
     {
-        return $this->scheduled_date;
+        return $this->tentative_scheduled_date;
     }
 
     /**
-     * @param string|null $scheduled_date
+     * @param string|null $tentative_scheduled_date
      * @return EpisodeEntity
      */
-    public function setScheduledDate(?string $scheduled_date): EpisodeEntity
+    public function setTentativeScheduledDate(?string $tentative_scheduled_date): EpisodeEntity
     {
-        $this->scheduled_date = $scheduled_date;
+        $this->tentative_scheduled_date = $tentative_scheduled_date;
         return $this;
     }
+
+
 
     /**
      * @return string|null
@@ -814,11 +836,12 @@ class EpisodeEntity
             $this->getMaxWaitingDays() .
             $this->getEnteredWaitingList() .
             $this->getForecastedDurationMin() .
-            $this->getRealStartTime() .
-            $this->getRealFinishTime() .
-            $this->getStartHour() .
-            $this->getFinishHour() .
-            $this->getScheduledDate() .
+            $this->getConfirmedStartTime() .
+            $this->getConfirmedFinishTime() .
+            $this->getConfirmedScheduledDate() .
+            $this->getTentativeStartHour() .
+            $this->getTentativeFinishHour() .
+            $this->getTentativeScheduledDate() .
             $this->getServiceName() .
             $this->getQuirofanName() .
             $this->getProcedure() .
