@@ -40,11 +40,11 @@ class EpisodeEntity
 
     /** @var ?int  optional field , patient age
      */
-    public ?int $age = null;
+    public ?int $patient_age = null;
 
     /** @var ?string  optional field , patient gender => m = male, f = female
      */
-    public ?string $gender = null;
+    public ?string $patient_gender = null;
 
     /** @var string  optional field, patient telephone
      */
@@ -230,16 +230,6 @@ class EpisodeEntity
     }
 
 
-    public function getAge(): ?int
-    {
-        return $this->age;
-    }
-
-    public function setAge($age): self
-    {
-        $this->age = $age;
-        return $this;
-    }
 
 
     public function getPatientTelephone(): ?int
@@ -388,16 +378,6 @@ class EpisodeEntity
         return $this;
     }
 
-    public function getGender(): ?string
-    {
-        return $this->gender;
-    }
-
-    public function setGender(?string $gender): EpisodeEntity
-    {
-        $this->gender = $gender;
-        return $this;
-    }
 
     /**
      * @return string|null
@@ -830,8 +810,8 @@ class EpisodeEntity
             $this->getHospitalUniqueRef() .
             $this->getPatientLastname1() .
             $this->getPatientLastname2() .
-            $this->getAge() .
-            $this->getGender() .
+            $this->getPatientAge() .
+            $this->getPatientGender() .
             $this->getPatientTelephone() .
             $this->getMaxWaitingDays() .
             $this->getEnteredWaitingList() .
@@ -884,6 +864,42 @@ class EpisodeEntity
         //$textToHash .= $this->preanesthesiaNotes;
         //$textToHash .= $this->doctorName;
 
+    }
+
+    /**
+     * @return int|null
+     */
+    public function getPatientAge(): ?int
+    {
+        return $this->patient_age;
+    }
+
+    /**
+     * @param int|null $patient_age
+     * @return EpisodeEntity
+     */
+    public function setPatientAge(?int $patient_age): EpisodeEntity
+    {
+        $this->patient_age = $patient_age;
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getPatientGender(): ?string
+    {
+        return $this->patient_gender;
+    }
+
+    /**
+     * @param string|null $patient_gender
+     * @return EpisodeEntity
+     */
+    public function setPatientGender(?string $patient_gender): EpisodeEntity
+    {
+        $this->patient_gender = $patient_gender;
+        return $this;
     }
 
 
