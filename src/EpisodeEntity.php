@@ -137,7 +137,7 @@ class EpisodeEntity
      */
     public bool $rx = false;
 
-    public bool $uci = false;
+    public bool $needs_uci = false;
 
 
     //doctors, name , info  and other fields
@@ -903,6 +903,25 @@ class EpisodeEntity
         $this->patient_gender = $patient_gender;
         return $this;
     }
+
+    /**
+     * @return bool
+     */
+    public function isNeedsUci(): bool
+    {
+        return $this->needs_uci;
+    }
+
+    /**
+     * @param bool $needs_uci
+     * @return EpisodeEntity
+     */
+    public function setNeedsUci(bool $needs_uci): EpisodeEntity
+    {
+        $this->needs_uci = $needs_uci;
+        return $this;
+    }
+
 
 
 }
