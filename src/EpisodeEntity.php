@@ -137,6 +137,8 @@ class EpisodeEntity
      */
     public bool $rx = false;
 
+    public bool $uci = false;
+
 
     //doctors, name , info  and other fields
 
